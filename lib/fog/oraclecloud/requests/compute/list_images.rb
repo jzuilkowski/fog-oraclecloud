@@ -6,7 +6,7 @@ module Fog
           response = request(
             :expects  => 200,
             :method   => 'GET',
-            :path     => "/machineimage/Compute-#{@identity_domain}/#{@username}/"
+            :path     => "/machineimage/Compute-#{@identity_domain}/"
           )
           response
         end

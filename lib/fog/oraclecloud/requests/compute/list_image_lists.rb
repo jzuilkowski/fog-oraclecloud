@@ -2,11 +2,17 @@ module Fog
   module Compute
     class OracleCloud
       class Real
-      	def list_image_lists
+      	def list_image_lists(location=private)
+          case location
+            when "private"
+              url = "/imagelist/Compute-#{@identity_domain}/"
+            when "public"
+              url = "/imagelist/oracle/public/"
+          end
           response = request(
             :expects  => 200,
             :method   => 'GET',
-            :path     => "/imagelist/Compute-#{@identity_domain}/#{@username}/"
+            :path     => url
           )
           response
         end
